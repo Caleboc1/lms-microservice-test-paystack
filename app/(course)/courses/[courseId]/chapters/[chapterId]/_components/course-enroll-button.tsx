@@ -26,7 +26,7 @@ export const CourseEnrollButton = ({ price, courseId }: CourseEnrollButtonProps)
             setIsLoading(true);
             
 
-            const response = await axios.post("http://localhost:3001/api/checkout", {
+            const response = await axios.post("https://paymentservice-lh9m.onrender.com/api/checkout", {
                 email: user.primaryEmailAddress?.emailAddress, // ✅ Get email
                 amount: price * 100,
                 courseId: courseId,
