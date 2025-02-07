@@ -31,7 +31,7 @@ export const CourseEnrollButton = ({ price, courseId }: CourseEnrollButtonProps)
                 amount: price * 100,
                 courseId: courseId,
                 userId: user.id, // ✅ Get user ID
-                callbackUrl: window.location.origin + `/courses/${courseId}`,
+                callbackUrl: window.location.origin + `/`,
             });
 
             window.location.assign(response.data.authorizationUrl);
