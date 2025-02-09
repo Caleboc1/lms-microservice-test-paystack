@@ -34,7 +34,7 @@ export const Chart = ({
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
-                tickFormatter={(value) => `$${value}`}/>
+                tickFormatter={(value) => `₦${value}`}/>
                 <Bar 
                 dataKey="total"
                 fill="#0369a1"
