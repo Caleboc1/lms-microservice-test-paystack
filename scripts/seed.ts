@@ -1,24 +1,29 @@
 const { PrismaClient } = require("@prisma/client");
-
 const database = new PrismaClient();
 
 async function main() {
     try {
-        await database.category.createMany({
-            data: [
-                { name: "Software Engineering" },
-                { name: "Music" },
-                { name: "Fitness" },
-                { name: "Photography" },
-                { name: "Engineering" },
-                { name: "Accounting" },
-                { name: "Filming" },
-            ]
-        });
+        const categories = [
+            { name: "Software Engineering" },
+            { name: "Music" },
+            { name: "Fitness" },
+            { name: "Photography" },
+            { name: "Engineering" },
+            { name: "Accounting" },
+            { name: "Filming" },
+        ];
 
-        console.log("Success")
+        for (const category of categories) {
+            await database.category.upsert({
+                where: { name: category.name }, // Check if the category already exists
+                update: {}, // Do nothing if it exists
+                create: category, // Create only if it doesn't exist
+            });
+        }
+
+        console.log("Database seeding completed successfully.");
     } catch (error) {
-        console.log("Error seeding the database categories", error);
+        console.error("Error seeding the database categories", error);
     } finally {
         await database.$disconnect();
     }

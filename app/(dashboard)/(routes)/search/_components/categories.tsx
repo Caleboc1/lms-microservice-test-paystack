@@ -22,7 +22,7 @@ const iconMap: Record<Category["name"], IconType> = {
     "Photography": FcOldTimeCamera,
     "Fitness": FcSportsMode,
     "Accounting": FcSalesPerformance,
-    "Computer Science": FcMultipleDevices,
+    "Software Engineering": FcMultipleDevices,
     "Filming": FcFilmReel,
     "Engineering": FcEngineering,
 }
