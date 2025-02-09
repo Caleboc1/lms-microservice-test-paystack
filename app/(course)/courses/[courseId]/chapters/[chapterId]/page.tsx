@@ -9,6 +9,7 @@ import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { CourseProgressButton } from "./_components/course-progress-button";
+import { File } from "lucide-react";
 
 
 const ChapterIdPage = async ({
@@ -87,6 +88,20 @@ const ChapterIdPage = async ({
                     <div>
                         <Preview value={chapter.description!}/>
                     </div>
+                    {!!attachments.length && (
+                        <>
+                        <Separator/>
+                        <div className="p-4"> 
+                            {attachments.map((attachment) => (
+                                <a href={attachment.url}
+                                target="_blank"
+                                key={attachment.id}
+                                className="flex items-centerp-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline">
+                                    <File/>
+                                    <p className="line-clamp-1">{attachment.name}</p>
+                                </a>
+                            ))}</div></>
+                    )}
                 </div>
             </div>
         </div>
