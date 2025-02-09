@@ -50,8 +50,8 @@ const CreatePage = () => {
     return (
         <div className="max-w-5xl mx-auto flex items-center
          md:justify-center h-full p-6">
-            <div className="">
-                <h1 className="text-2xl ">
+            <div className="pt-6">
+                <h1 className="text-2xl">
                     Name Your Course
                 </h1>
                 <p className="text-small text-slate-600">
